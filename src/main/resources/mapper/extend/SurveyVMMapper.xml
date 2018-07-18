@@ -16,7 +16,7 @@
   	<association  
   		column="questionnaire_id" 
   		property="questionnaire" 
-  		select="com.briup.app02.dao.questionnaireMapper.findById">
+  		select="com.briup.app02.dao.QuestionnaireMapper.findById">
   	</association>
   	<association  
   		column="user_id" 

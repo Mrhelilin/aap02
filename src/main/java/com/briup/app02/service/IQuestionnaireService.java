@@ -7,5 +7,7 @@ import com.briup.app02.bean.Questionnaire;
 public interface IQuestionnaireService {
 	List<Questionnaire> findAll() throws Exception;
 	
+	Questionnaire findById() throws Exception;
+	
 	
 }

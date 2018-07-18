@@ -20,6 +20,9 @@ public class QuestionnaireServiceImpl implements IQuestionnaireService {
 	public List<Questionnaire> findAll() throws Exception {
 		return questionnaireMapper.findAll();
 	}
+	@Override
+	public Questionnaire findById() throws Exception {
+		return questionnaireMapper.findById();
 
-
+}
 }

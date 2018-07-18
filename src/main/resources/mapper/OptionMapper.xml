@@ -4,7 +4,7 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.briup.app02.dao.OptionMapper">
   <!-- 查询所有班级信息  -->
-  <select id="findByQuestionId" parameterType="long" resultType="com.briup.app02.bean.Option">
+  <select id="findQuestionById" parameterType="long" resultType="com.briup.app02.bean.Option">
      select * from poll_option where question_id = #{id}
   </select>
 </mapper>

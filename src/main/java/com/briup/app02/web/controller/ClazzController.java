@@ -50,4 +50,6 @@ public class ClazzController {
 			return MsgResponse.error(e.getMessage());
 		}
 	}
+	
+	
 }

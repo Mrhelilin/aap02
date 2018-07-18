@@ -21,12 +21,16 @@ public class ClazzServiceImpl implements IClazzService {
 
 	@Override
 	public List<Clazz> findAll() throws Exception {
-		return clazzMapper.findAll();
+		return clazzMapper.findAllClazz();
 	}
 
 	@Override
 	public List<ClazzVM> findAllClazzVM() throws Exception {
 		return clazzVMMapper.findAllClazzVM();
+	}
+	@Override
+	public Clazz findById() throws Exception{
+		return clazzMapper.findById();
 	}
 
 }

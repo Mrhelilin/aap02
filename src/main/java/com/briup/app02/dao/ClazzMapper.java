@@ -5,5 +5,6 @@ import java.util.List;
 import com.briup.app02.bean.Clazz;
 
 public interface ClazzMapper {
-	List<Clazz> findAll();
+	List<Clazz> findAllClazz();
+	Clazz findById();
 }
