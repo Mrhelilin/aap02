@@ -25,7 +25,7 @@
   	where id = #{id}
   </update>
   
-  <!-- 删除 -->
+  <!-- 删除年级信息 -->
   <delete id="deleteById" parameterType="long">
   	delete from poll_grade where id = #{id}
   </delete>

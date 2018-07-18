@@ -17,7 +17,7 @@ public class CourseServiceImpl implements ICourseService {
 	
 	@Override
 	public List<Course> findAll() throws Exception {
-		//调用studentMapper查询所有课程
+
 		List<Course> list = courseMapper.findAll();
 		
 		return list;
@@ -44,9 +44,9 @@ public class CourseServiceImpl implements ICourseService {
 
 	@Override
 	public void deleteById(long id) throws Exception {
-		//1. 通过id查找
+		
 		Course course = courseMapper.findById(id);
-		//2. 如果该课程存在，执行删除操作，如果该课程不存在，抛出异常
+	
 		if(course!=null){
 			courseMapper.deleteById(id);
 		} else {

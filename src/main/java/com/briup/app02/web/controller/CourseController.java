@@ -12,6 +12,10 @@ import com.briup.app02.bean.Course;
 import com.briup.app02.service.ICourseService;
 import com.briup.app02.util.MsgResponse;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(description="课程相关接口")
 @RestController
 @RequestMapping("/course")
 public class CourseController {
@@ -19,20 +23,22 @@ public class CourseController {
 	@Autowired
 	private ICourseService courseService;
 	
+	@ApiOperation(value="删除课程 通过ID")
 	@GetMapping("deleteCourseById")
 	public MsgResponse deleteCourseById(long id){
 		try {
-			// 调用service层代码删除课程信息
+			
 			courseService.deleteById(id);
-			// 如果删除成功返回成功信息
+			
 			return MsgResponse.success("删除成功！", null);
 		} catch (Exception e) {
-			// 先打印错误信息，让后台开发者知道问题所在；返回错误信息，让前端开发者知道错误所在
+		
 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
 		}
 	}
 	
+	@ApiOperation(value="更新课程")
 	@PostMapping("updateCourse")
 	public String updateCourse(Course course){
 		try {
@@ -44,12 +50,7 @@ public class CourseController {
 		}
 	}
 	
-	/**
-	 * 保存课程信息
-	 * @author 李春雨
-	 * @param student 
-	 * @return 
-	 * */
+	@ApiOperation(value="保存课程")
 	@PostMapping("saveCourse")
 	public void saveCourse(Course course){
 		try {
@@ -59,9 +60,7 @@ public class CourseController {
 		}
 	}
 	
-	
-	
-	// http://127.0.0.1:8080/course/findAllCourse
+	@ApiOperation(value="查询所有课程")
 	@GetMapping("findAllCourse")
 	public MsgResponse findAllCourse(){
 		try {
@@ -73,6 +72,7 @@ public class CourseController {
 		}
 	}
 	
+	@ApiOperation(value="查找课程 通过ID")
 	@GetMapping("findCourseById")
 	public Course findCourseById(long id){
 		try {

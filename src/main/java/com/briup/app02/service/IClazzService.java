@@ -10,5 +10,11 @@ public interface IClazzService {
 	
 	List<ClazzVM> findAllClazzVM() throws Exception;
 	
-	Clazz findById()  throws  Exception;
+	Clazz findById(long id)  throws  Exception;
+	
+	void save(Clazz clazz) throws Exception;
+	
+	void update(Clazz clazz) throws Exception;
+	
+	void deleteById(long id) throws Exception;
 }

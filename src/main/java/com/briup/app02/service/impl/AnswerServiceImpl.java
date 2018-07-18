@@ -44,13 +44,13 @@ public class AnswerServiceImpl implements IAnswerService {
 
 	@Override
 	public void deleteById(long id) throws Exception {
-		//1. 通过id查找
+		
 		Answer answer = answerMapper.findById(id);
-		//2. 如果该学生存在，执行删除操作，如果该学生不存在，抛出异常
+		
 		if(answer!=null){
 			answerMapper.deleteById(id);
 		} else {
-			throw new Exception("要删除的学生不存在");
+			throw new Exception("要删除的答案不存在");
 		}
 		
 		

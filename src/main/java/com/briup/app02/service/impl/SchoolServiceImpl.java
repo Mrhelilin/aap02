@@ -17,9 +17,7 @@ public class SchoolServiceImpl implements ISchoolService {
 	
 	@Override
 	public List<School> findAll() throws Exception {
-		//调用schoolMapper查询所有学校
 		List<School> list = schoolMapper.findAll();
-		
 		return list;
 	}
 
@@ -44,9 +42,7 @@ public class SchoolServiceImpl implements ISchoolService {
 
 	@Override
 	public void deleteById(long id) throws Exception {
-		//1. 通过id查找
 		School school = schoolMapper.findById(id);
-		//2. 如果该学校存在，执行删除操作，如果该学校不存在，抛出异常
 		if(school!=null){
 			schoolMapper.deleteById(id);
 		} else {

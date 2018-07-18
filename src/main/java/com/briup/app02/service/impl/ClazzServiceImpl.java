@@ -28,9 +28,37 @@ public class ClazzServiceImpl implements IClazzService {
 	public List<ClazzVM> findAllClazzVM() throws Exception {
 		return clazzVMMapper.findAllClazzVM();
 	}
+	
 	@Override
-	public Clazz findById() throws Exception{
-		return clazzMapper.findById();
+	public Clazz findById(long id) throws Exception{
+		return clazzMapper.findById(id);
+	}
+
+	@Override
+	public void save(Clazz clazz) throws Exception {
+		// TODO Auto-generated method stub
+		clazzMapper.save(clazz);
+	
+	}
+
+	@Override
+	public void update(Clazz clazz) throws Exception {
+		// TODO Auto-generated method stub
+		clazzMapper.update(clazz);
+	}
+
+	@Override
+	public void deleteById(long id) throws Exception {
+		// TODO Auto-generated method stub
+		
+				Clazz clazz = clazzMapper.findById(id);
+				
+				if(clazz!=null){
+					clazzMapper.deleteById(id);
+				} else {
+					throw new Exception("要删除的学生不存在");
+				}
+
 	}
 
 }

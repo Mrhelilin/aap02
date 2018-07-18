@@ -5,9 +5,9 @@ import java.util.List;
 import com.briup.app02.bean.School;
 
 public interface ISchoolService {
-List<School> findAll() throws Exception;
+	List<School> findAll() throws Exception;
 	
-School findById(long id) throws Exception;
+	School findById(long id) throws Exception;
 	
 	void save(School school) throws Exception;
 	

@@ -29,4 +29,28 @@ public class SurveyServiceImpl implements ISurveyService {
 		return surveyVMMapper.findAllSurveyVM();
 	}
 
+	@Override
+	public Survey findById(long id) throws Exception {
+		// TODO Auto-generated method stub
+		return surveyMapper.findById(id);
+	}
+
+	@Override
+	public void save(Survey survey) throws Exception {
+		// TODO Auto-generated method stub
+		surveyMapper.save(survey);
+	}
+
+	@Override
+	public void update(Survey survey) throws Exception {
+		// TODO Auto-generated method stub
+		 surveyMapper.update(survey);
+	}
+
+	@Override
+	public void deleteById(long id) throws Exception {
+		// TODO Auto-generated method stub
+		 surveyMapper.deleteById(id);
+	}
+
 }

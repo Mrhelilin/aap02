@@ -7,9 +7,26 @@
   <select id="findAll" resultType="com.briup.app02.bean.Questionnaire">
     select * from poll_questionnaire
   </select>
+   <!-- 查找问卷表信息 通过ID  -->
   <select id="findById" parameterType="long" resultType="com.briup.app02.bean.Questionnaire">
     select * from poll_questionnaire where id=#{id}
   </select>
+  <!-- 保存问卷表信息  -->
+  <insert id="save" parameterType="com.briup.app02.bean.Questionnaire">
+  	insert into poll_questionnaire values(null,#{name},#{description},#{createdate})
+  </insert>
+  
+  <!-- 修改问卷表信息 -->
+  <update id="update" parameterType="com.briup.app02.bean.Questionnaire">
+  	update poll_questionnaire 
+  	set name=#{name},description=#{description},createdate=#{createdate}
+  	where id = #{id}
+  </update>
+  
+  <!-- 删除问卷表信息通过ID -->
+  <delete id="deleteById" parameterType="long">
+  	delete from poll_questionnaire where id = #{id}
+  </delete>
 </mapper>
 
 

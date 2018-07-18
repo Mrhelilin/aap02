@@ -25,7 +25,7 @@
   	where id = #{id}
   </update>
   
-  <!-- 删除 -->
+  <!-- 删除答案信息通过ID -->
   <delete id="deleteById" parameterType="long">
   	delete from poll_answer where id = #{id}
   </delete>

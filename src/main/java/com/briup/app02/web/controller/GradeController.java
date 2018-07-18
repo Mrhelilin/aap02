@@ -12,6 +12,10 @@ import com.briup.app02.bean.Grade;
 import com.briup.app02.service.IGradeService;
 import com.briup.app02.util.MsgResponse;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(description="年级相关接口")
 @RestController
 @RequestMapping("/grade")
 public class GradeController {
@@ -19,20 +23,22 @@ public class GradeController {
 	@Autowired
 	private IGradeService gradeService;
 	
+	@ApiOperation(value="删除课程信息 通过ID")
 	@GetMapping("deleteGradeById")
 	public MsgResponse deleteGradeById(long id){
 		try {
-			// 调用service层代码删除学生信息
+		
 			gradeService.deleteById(id);
-			// 如果删除成功返回成功信息
+		
 			return MsgResponse.success("删除成功！", null);
 		} catch (Exception e) {
-			// 先打印错误信息，让后台开发者知道问题所在；返回错误信息，让前端开发者知道错误所在
+		
 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
 		}
 	}
 	
+	@ApiOperation(value="更新年级信息")
 	@PostMapping("updateGrade")
 	public String updateGrade(Grade grade){
 		try {
@@ -44,12 +50,7 @@ public class GradeController {
 		}
 	}
 	
-	/**
-	 * 保存学生信息
-	 * @author 李春雨
-	 * @param student 
-	 * @return 
-	 * */
+	@ApiOperation(value="保存年级信息")
 	@PostMapping("saveGrade")
 	public void saveCourse(Grade grade){
 		try {
@@ -59,9 +60,7 @@ public class GradeController {
 		}
 	}
 	
-	
-	
-	// http://127.0.0.1:8080/student/findAllStudent
+	@ApiOperation(value="查询所有年级信息")
 	@GetMapping("findAllGrade")
 	public MsgResponse findAllGrade(){
 		try {
@@ -73,6 +72,7 @@ public class GradeController {
 		}
 	}
 	
+	@ApiOperation(value="查找年级信息 通过ID")
 	@GetMapping("findGradeById")
 	public Grade findGradeById(long id){
 		try {

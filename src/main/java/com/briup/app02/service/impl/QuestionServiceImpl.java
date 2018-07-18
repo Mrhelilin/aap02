@@ -19,4 +19,13 @@ public class QuestionServiceImpl implements IQuestionService {
 		return questionVMMapper.findAllQuestionVM();
 	}
 
+	@Override
+	public void saveQuestion(QuestionVM questionVM) throws Exception {
+		// TODO Auto-generated method stub
+	/*
+	 * 1.将question和option从questionVM中剥离处理
+	 * question List<Option> list
+	 * 
+	 * **/	
+	}	
 }

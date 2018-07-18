@@ -17,7 +17,7 @@ public class GradeServiceImpl implements IGradeService {
 	
 	@Override
 	public List<Grade> findAll() throws Exception {
-		//调用gradeMapper查询所有学生
+
 		List<Grade> list = gradeMapper.findAll();
 		
 		return list;
@@ -44,13 +44,13 @@ public class GradeServiceImpl implements IGradeService {
 
 	@Override
 	public void deleteById(long id) throws Exception {
-		//1. 通过id查找
+	
 		Grade grade = gradeMapper.findById(id);
-		//2. 如果该年级存在，执行删除操作，如果该学生不存在，抛出异常
+	
 		if(grade!=null){
 			gradeMapper.deleteById(id);
 		} else {
-			throw new Exception("要删除的学生不存在");
+			throw new Exception("要删除的年级不存在");
 		}
 		
 		

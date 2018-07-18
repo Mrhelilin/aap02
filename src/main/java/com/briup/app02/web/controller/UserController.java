@@ -8,41 +8,38 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.briup.app02.bean.Answer;
-import com.briup.app02.service.IAnswerService;
+import com.briup.app02.bean.User;
+import com.briup.app02.service.IUserService;
 import com.briup.app02.util.MsgResponse;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(description="答案相关接口")
+@Api(description="用户相关接口")
 @RestController
-@RequestMapping("/answer")
-public class AnswerController {
-	// 注入studentService的实例
+@RequestMapping("/user")
+public class UserController {
+	// 注入userService的实例
 	@Autowired
-	private IAnswerService answerService;
+	private IUserService userService;
 	
-	@ApiOperation(value="删除答案 通过ID")
-	@PostMapping("deleteAnswerById")
-	public MsgResponse deleteAnswerById(long id){
+	@ApiOperation(value="删除用户 通过ID")
+	@GetMapping("deleteUserById")
+	public MsgResponse deleteUserById(long id){
 		try {
-			
-			answerService.deleteById(id);
-		
+			userService.deleteById(id);
 			return MsgResponse.success("删除成功！", null);
 		} catch (Exception e) {
-	
 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
 		}
 	}
 	
-	@ApiOperation(value="更新答案")
-	@PostMapping("updateAnswer")
-	public MsgResponse updateAnswer(Answer answer){
+	@ApiOperation(value="更新用户")
+	@PostMapping("updateUser")
+	public MsgResponse updateUser(User user){
 		try {
-			answerService.update(answer);
+			userService.update(user);
 			return MsgResponse.success("更新成功！", null);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -50,23 +47,25 @@ public class AnswerController {
 		}
 	}
 	
-	@ApiOperation(value="保存答案")
-	@PostMapping("saveAnswer")
-	public MsgResponse saveCourse(Answer answer){
+	@ApiOperation(value="保存用户")
+	@PostMapping("saveUser")
+	public MsgResponse saveUser(User user){
 		try {
-			answerService.save(answer);
+			userService.save(user);
 			return MsgResponse.success("保存成功！", null);
-			
 		} catch (Exception e) {
+			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
 		}
 	}
 	
-	@ApiOperation(value="查找所有答案")
-	@GetMapping("findAllAnswer")
-	public MsgResponse findAllAnswer(){
+	
+	
+	@ApiOperation(value="查询所有用户")
+	@GetMapping("findAllUser")
+	public MsgResponse findAllUser(){
 		try {
-			List<Answer> list = answerService.findAll();
+			List<User> list = userService.findAll();
 			return MsgResponse.success("查询成功", list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,12 +73,12 @@ public class AnswerController {
 		}
 	}
 	
-	@ApiOperation(value="查找答案通过ID")
-	@GetMapping("findAnswerById")
-	public MsgResponse findAnswerById(long id){
+	@ApiOperation(value="查找用户 通过ID")
+	@GetMapping("findUserById")
+	public MsgResponse findUserById(long id){
 		try {
-			Answer answer = answerService.findById(id);
-			return MsgResponse.success("查找成功！", answer);
+			User user = userService.findById(id);
+			return MsgResponse.success("查找成功！", user);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());

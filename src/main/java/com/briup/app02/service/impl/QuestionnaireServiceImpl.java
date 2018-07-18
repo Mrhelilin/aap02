@@ -21,8 +21,23 @@ public class QuestionnaireServiceImpl implements IQuestionnaireService {
 		return questionnaireMapper.findAll();
 	}
 	@Override
-	public Questionnaire findById() throws Exception {
-		return questionnaireMapper.findById();
+	public Questionnaire findById(long id) throws Exception {
+		return questionnaireMapper.findById(id);
 
 }
+	@Override
+	public void save(Questionnaire questionnaire) throws Exception {
+		// TODO Auto-generated method stub
+		questionnaireMapper.save(questionnaire);
+	}
+	@Override
+	public void update(Questionnaire questionnaire) throws Exception {
+		// TODO Auto-generated method stub
+		 questionnaireMapper.update(questionnaire);
+	}
+	@Override
+	public void deleteById(long id) throws Exception {
+		// TODO Auto-generated method stub
+		questionnaireMapper.deleteById(id);
+	}
 }

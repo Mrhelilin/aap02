@@ -17,9 +17,7 @@ public class UserServiceImpl implements IUserService {
 	
 	@Override
 	public List<User> findAll() throws Exception {
-		//调用studentMapper查询所有学生
 		List<User> list = userMapper.findAll();
-		
 		return list;
 	}
 
@@ -44,13 +42,11 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public void deleteById(long id) throws Exception {
-		//1. 通过id查找
 		User user = userMapper.findById(id);
-		//2. 如果该学生存在，执行删除操作，如果该学生不存在，抛出异常
 		if(user!=null){
 			userMapper.deleteById(id);
 		} else {
-			throw new Exception("要删除的学生不存在");
+			throw new Exception("要删除的用户不存在");
 		}
 		
 		

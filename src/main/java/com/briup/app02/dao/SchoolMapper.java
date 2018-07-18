@@ -6,7 +6,7 @@ import com.briup.app02.bean.School;
 
 
 public interface SchoolMapper {
-	// 查询所有课程信息
+		// 查询所有课程信息
 		List<School> findAll();
 		
 		// 通过id查询课程信息

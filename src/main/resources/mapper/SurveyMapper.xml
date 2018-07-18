@@ -7,6 +7,28 @@
   <select id="findAll" resultType="com.briup.app02.bean.Survey">
     select * from poll_survey
   </select>
+  
+  <!-- 通过id查询调查信息  -->
+  <select id="findById" parameterType="long" resultType="com.briup.app02.bean.Survey">
+    select * from poll_survey where id = #{id}
+  </select>
+  
+  <!-- 保存调查信息  -->
+  <insert id="save" parameterType="com.briup.app02.bean.Survey">
+  	insert into poll_survey values(null,#{state},#{average},#{surveydate},#{questionnaire_id},#{user_id},#{clazz_id},#{course_id})
+  </insert>
+  
+  <!-- 修改调查信息 -->
+  <update id="update" parameterType="com.briup.app02.bean.Survey">
+  	update poll_survey 
+  	set state=#{state},average=#{average},surveydate=#{surveydate},questionnaire_id=#{questionnaire_id},user_id=#{user_id},clazz_id=#{clazz_id},course_id=#{course_id}
+  	where id = #{id}
+  </update>
+  
+  <!-- 删除调查信息通过ID -->
+  <delete id="deleteById" parameterType="long">
+  	delete from poll_survey where id = #{id}
+  </delete>
 </mapper>
 
 

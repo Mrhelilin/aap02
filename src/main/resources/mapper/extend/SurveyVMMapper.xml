@@ -13,7 +13,8 @@
   	<result column="state" property="state"/>
   	<result column="average" property="average"/>
   	<result column="surveydate" property="surveydate"/>
-  	<association  
+  	
+	<association  
   		column="questionnaire_id" 
   		property="questionnaire" 
   		select="com.briup.app02.dao.QuestionnaireMapper.findById">
@@ -25,7 +26,7 @@
   	</association>
   	<association  
   		column="clazz_id" 
-  		property="questionnaire" 
+  		property="clazz" 
   		select="com.briup.app02.dao.ClazzMapper.findById">
   	</association>
   	<association  
