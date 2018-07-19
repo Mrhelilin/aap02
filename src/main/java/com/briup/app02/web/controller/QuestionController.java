@@ -22,17 +22,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
  	@Autowired
  	private IQuestionService questionService;
  	
- 	@ApiOperation(value="保存问题",notes="保存的同时保存问题选项,id不需要输入")
- 	@PostMapping("savaQuestion")
- 	public MsgResponse saveQuestion(QuestionVM questionVM)
+ 	@ApiOperation(value="保存问题",notes="保存问题的同时还应该保存选项,问题id,选项id,选项中的外键question_id也不必输入")
+ 	@PostMapping("savaQuestionVM")
+ 	public MsgResponse saveQuestionVM(QuestionVM questionVM)
  	{
  		try {
- 			
- 			
- 			return MsgResponse.success("保存成功", questionVM);
-			
-		} catch (Exception e) {
+ 			questionService.saveQuestionVM(questionVM);
+ 			return MsgResponse.success("保存成功", null);
+
+ 		} catch (Exception e) {
 			// TODO: handle exception
+ 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
 		}
  	

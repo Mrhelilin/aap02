@@ -3,6 +3,7 @@ package com.briup.app02.dao;
 import java.util.List;
 
 import com.briup.app02.bean.Answer;
+import com.briup.app02.bean.Survey;
 
 
 public interface AnswerMapper {
@@ -20,4 +21,6 @@ public interface AnswerMapper {
 		
 		//删除答案信息
 		void deleteById(long id);
+		
+		List<Survey> findBySurveyId(long id); 
 }

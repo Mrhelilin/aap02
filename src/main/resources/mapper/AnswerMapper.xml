@@ -29,6 +29,11 @@
   <delete id="deleteById" parameterType="long">
   	delete from poll_answer where id = #{id}
   </delete>
+  
+  <!-- 查找所有答案 -->
+   <select id="findBySurveyId" parameterType="long" resultType="com.briup.app02.bean.Answer">
+     select * from poll_answer where survey_id = #{id}
+  </select>
 </mapper>
 
 

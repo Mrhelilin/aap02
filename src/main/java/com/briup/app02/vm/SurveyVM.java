@@ -1,5 +1,8 @@
 package com.briup.app02.vm;
 
+import java.util.List;
+
+import com.briup.app02.bean.Answer;
 import com.briup.app02.bean.Clazz;
 import com.briup.app02.bean.Course;
 import com.briup.app02.bean.Questionnaire;
@@ -14,6 +17,14 @@ public class SurveyVM {
 	private User user;
 	private Clazz clazz;
 	private Course course;
+	private List<Answer> answers;
+	
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
 	public Long getId() {
 		return id;
 	}
